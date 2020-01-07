@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+#config_form {
+  margin: 20px;
+}
+
+#config_form input {
+  margin-bottom: 5px;
+}
+
 .box {
   margin: 20px;
   padding: 10px;

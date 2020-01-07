@@ -1,38 +1,38 @@
 <?php
 
-  header('Content-Type: application/json');
+header('Content-Type: application/json');
 
-  $servername = 'localhost';
-  $username = 'root';
-  $pws = 'root';
-  $db = 'HotelDB';
+$servername = 'localhost';
+$username = 'root';
+$pws = 'root';
+$db = 'HotelDB';
 
-  $conn = new mysqli($servername, $username, $pws, $db);
-  
-  if ($conn -> connect_errno) {
-    echo json_encode(-1);
-    return;
-  }
+$conn = new mysqli($servername, $username, $pws, $db);
 
-  $sql = '
-    SELECT id, title, description
-    FROM configurazioni
-  ';
+if ($conn -> connect_errno) {
+  echo json_encode(-1);
+  return;
+}
 
-  $res = $conn -> query($sql);
+$sql = '
+  SELECT id, title, description
+  FROM configurazioni
+';
 
-  if ($res -> num_rows < 1) {
-    echo json_encode(-2);
-    return;
-  }
+$res = $conn -> query($sql);
 
-  $configurazioni = [];
-  while ($configurazione = $res -> fetch_assoc()) {
-    $configurazioni[] = $configurazione;
-  }
+if ($res -> num_rows < 1) {
+  echo json_encode(-2);
+  return;
+}
 
-  $conn -> close();
+$configurazioni = [];
+while ($configurazione = $res -> fetch_assoc()) {
+  $configurazioni[] = $configurazione;
+}
 
-  echo json_encode($configurazioni);
+$conn -> close();
+
+echo json_encode($configurazioni);
 
 ?>

@@ -28,6 +28,14 @@
 </head>
 <body>
   
+  <form id="config_form">
+    <label for="title">Title:</label>
+    <input type="text" name="title" value="new title"><br>
+    <label for="description">Description:</label>
+    <input type="text" name="description" value="new description"><br>
+    <input type="submit" value="Nuova Configurazione">
+  </form>
+
   <div id="container"></div>
 
 </body>
