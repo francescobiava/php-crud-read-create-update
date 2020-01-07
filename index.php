@@ -16,6 +16,11 @@
 
   <!-- Handlebars Template -->
   <script id="config_template" type="text/x-handlebars-template">
+    <div class="box">
+      <p>Configurazione {{id}}:</p>
+      <p>{{title}}</p>
+      <p>{{description}}</p>
+    </div>
   </script>
 
 
@@ -23,5 +28,7 @@
 </head>
 <body>
   
+  <div id="container"></div>
+
 </body>
 </html>
