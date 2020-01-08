@@ -3,6 +3,8 @@ $(document).ready(init);
 function init() {
   getAllConfigurazioni();
   $('#config_form').submit(putNewConfigurazione);
+  // $(this).on('click', '.delete_conf', deleteConfigurazione);
+  $(this).on('click', '.update_conf', updateConfigurazione);
 }
 
 function getAllConfigurazioni() {
@@ -36,6 +38,51 @@ function putNewConfigurazione() {
   });
 
   return false;
+}
+
+// function deleteConfigurazione() {
+//   var me = $(this);
+//   var id = me.data('id');
+
+//   $.ajax({
+//     url: 'deleteConfigurazione.php',
+//     method: 'POST',
+//     data: {id: id},
+//     success: function(data) {
+//       if (data) {
+//         getAllConfigurazioni();
+//       }
+//     },
+//     error: function(error) {
+//       console.log('errore', error);
+//     }
+//   });
+// }
+
+function updateConfigurazione() {
+  var me = $(this);
+  var id = me.data('id');
+  
+  var newTitle = prompt('New Title');
+  var newDescription = prompt('New Description')
+
+  $.ajax({
+    url: 'updateConfigurazione.php',
+    method: 'POST',
+    data: {
+      id: id,
+      title: newTitle,
+      description: newDescription
+    },
+    success: function(data) {
+      if (data) {
+        getAllConfigurazioni();
+      }
+    },
+    error: function(error) {
+      console.log('error', error);
+    }
+  });
 }
 
 function printConfigurazioni(data) {

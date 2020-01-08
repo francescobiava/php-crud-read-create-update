@@ -17,6 +17,8 @@
   <!-- Handlebars Template -->
   <script id="config_template" type="text/x-handlebars-template">
     <div class="box">
+      <input type="button" class="delete_conf" value="Delete me" data-id="{{id}}">
+      <input type="button" class="update_conf" value="Update me" data-id="{{id}}">
       <p>Configurazione {{id}}:</p>
       <p>{{title}}</p>
       <p>{{description}}</p>
